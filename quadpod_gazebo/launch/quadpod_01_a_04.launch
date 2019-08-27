@@ -1,0 +1,85 @@
+<launch>
+  <!-- these are the arguments you can pass this launch file, for example paused:=true -->
+  <arg name="paused" default="true"/>
+  <arg name="use_sim_time" default="true"/>
+  <arg name="extra_gazebo_args" default=""/>
+  <arg name="gui" default="true"/>
+  <arg name="recording" default="false"/>
+  <!-- Note that 'headless' is currently non-functional.  See gazebo_ros_pkgs issue #491 (-r arg does not disable
+       rendering, but instead enables recording). The arg definition has been left here to prevent breaking downstream
+       launch files, but it does nothing. -->
+  <arg name="headless" default="false"/>
+  <arg name="debug" default="false"/>
+  <arg name="physics" default="ode"/>
+  <arg name="verbose" default="false"/>
+  <arg name="world_name" default="worlds/empty.world"/> <!-- Note: the world_name is with respect to GAZEBO_RESOURCE_PATH environmental variable -->
+  <arg name="respawn_gazebo" default="false"/>
+  <arg name="use_clock_frequency" default="false"/>
+  <arg name="pub_clock_frequency" default="100"/>
+  <arg name="required" default="false"/>
+
+  <!-- set use_sim_time flag -->
+  <group if="$(arg use_sim_time)">
+    <param name="/use_sim_time" value="true" />
+  </group>
+
+  <!-- set command arguments -->
+  <arg unless="$(arg paused)" name="command_arg1" value=""/>
+  <arg     if="$(arg paused)" name="command_arg1" value="-u"/>
+  <arg unless="$(arg recording)" name="command_arg2" value=""/>
+  <arg     if="$(arg recording)" name="command_arg2" value="-r"/>
+  <arg unless="$(arg verbose)" name="command_arg3" value=""/>
+  <arg     if="$(arg verbose)" name="command_arg3" value="--verbose"/>
+  <arg unless="$(arg debug)" name="script_type" value="gzserver"/>
+  <arg     if="$(arg debug)" name="script_type" value="debug"/>
+
+  <!-- start gazebo server-->
+  <group if="$(arg use_clock_frequency)">
+    <param name="gazebo/pub_clock_frequency" value="$(arg pub_clock_frequency)" />
+  </group>
+  <node name="gazebo" pkg="gazebo_ros" type="$(arg script_type)" respawn="$(arg respawn_gazebo)" output="screen"
+	args="$(arg command_arg1) $(arg command_arg2) $(arg command_arg3) -e $(arg physics) $(arg extra_gazebo_args) $(arg world_name)" />
+
+  <!-- start gazebo client -->
+  <group if="$(arg gui)">
+    <node name="gazebo_gui" pkg="gazebo_ros" type="gzclient" respawn="false" output="screen" required="$(arg required)"/>
+  </group>
+
+  <!-- Load the URDF model into the parameter server -->
+  <param name="robot_description" textfile="$(find quadpod_description)/urdf/quadpod_01_a.urdf"/>
+
+  <!-- Spawn a urdf in Gazebo, taking the description from the parameter server -->
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model"
+        args="-param robot_description -urdf -model quadpod_01_a -x 0 -y 0 -z 0.75" />
+        <!-- Note: I'm explicitly setting the spawn location - this can be a useful trick if you want to spawn multiple robots... -->
+
+  <!-- Start FSM nodes -->
+  <!-- leg FSMs -->
+  <!-- front left leg -->
+  <node name="frontleftleg" pkg="quadpod_description" type="three_dof_leg_fsm_node.py" output="screen" launch-prefix="xterm -e"
+        args="left hip_to_frontleftleg frontleftleg_to_hip
+              knee_to_frontleftleg frontleftleg_to_knee
+              ankle_to_frontleftleg frontleftleg_to_ankle
+              master_to_frontleftleg frontleftleg_to_master 100" />
+  <!-- front right leg -->
+  <node name="frontrightleg" pkg="quadpod_description" type="three_dof_leg_fsm_node.py" output="screen" launch-prefix="xterm -e"
+        args="right hip_to_frontrightleg frontrightleg_to_hip
+              knee_to_frontrightleg frontrightleg_to_knee
+              ankle_to_frontrightleg frontrightleg_to_ankle
+              master_to_frontrightleg frontrightleg_to_master 100" />
+  <!-- rear left leg -->
+  <node name="rearleftleg" pkg="quadpod_description" type="three_dof_leg_fsm_node.py" output="screen" launch-prefix="xterm -e"
+        args="left hip_to_rearleftleg rearleftleg_to_hip
+              knee_to_rearleftleg rearleftleg_to_knee
+              ankle_to_rearleftleg rearleftleg_to_ankle
+              master_to_rearleftleg rearleftleg_to_master 100" />
+  <!-- rear right leg -->
+  <node name="rearrightleg" pkg="quadpod_description" type="three_dof_leg_fsm_node.py" output="screen" launch-prefix="xterm -e"
+        args="right hip_to_rearrightleg rearrightleg_to_hip
+              knee_to_rearrightleg rearrightleg_to_knee
+              ankle_to_rearrightleg rearrightleg_to_ankle
+              master_to_rearrightleg rearrightleg_to_master 100" />
+
+  <!-- smach_viewer nodes for visualization | only works with modified smach_viewer.py - Joseph -->
+  <node name="smach_viewer_1" pkg="smach_viewer" type="smach_viewer.py" launch-prefix="xterm -e" />
+</launch>

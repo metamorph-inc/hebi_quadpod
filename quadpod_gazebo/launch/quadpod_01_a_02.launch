@@ -1,0 +1,20 @@
+<launch>
+  <arg name="use_sim_time" default="true"/>
+
+  <!-- set use_sim_time flag -->
+  <group if="$(arg use_sim_time)">
+    <param name="/use_sim_time" value="true" />
+  </group>
+
+  <!-- Start Gazebo -->
+  <node name="launch_gazebo" pkg="quadpod_gazebo" type="launch_gazebo.sh" output="screen"
+        args="-u --verbose -e ode $(find centipede_gazebo)/world/fire_hydrant_man_asphalt.world" />
+
+  <!-- Load the URDF model into the parameter server -->
+  <param name="robot_description" textfile="$(find quadpod_description)/urdf/quadpod_01_a.urdf"/>
+
+  <!-- Spawn a urdf in Gazebo, taking the description from the parameter server -->
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model"
+        args="-param robot_description -urdf -model quadpod_01_a -x 0 -y 0 -z 0.75" />
+        <!-- Note: I'm explicitly setting the spawn location - this can be a useful trick if you want to spawn multiple robots... -->
+</launch>

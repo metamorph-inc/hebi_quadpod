@@ -1,0 +1,927 @@
+<?xml version="1.0"?>
+<robot name="quadpod_01_a">
+
+    <!-- Link definitions -->
+    <link name="base_link">
+      <visual>
+        <geometry>
+          <cylinder length="0.1524" radius="0.1524"/>
+        </geometry>
+        <material name="silver">
+          <color rgba="0.75 0.75 0.75 1"/>
+        </material>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+      </visual>
+      <collision>
+        <geometry>
+          <cylinder length="0.1524" radius="0.1524"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+      </collision>
+      <inertial>
+        <mass value="1.0"/>
+        <inertia ixx="0.007742" iyy="0.007742" izz="0.01161"
+                 ixy="0.0" ixz="0.0" iyz="0.0"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+      </inertial>
+    </link>
+
+    <!-- front left leg -->
+    <link name="front_left_upper_leg_link">
+      <visual>
+        <geometry>
+          <cylinder length="0.2032" radius="0.0381"/>
+        </geometry>
+        <material name="silver">
+          <color rgba="0.75 0.75 0.75 1"/>
+        </material>
+        <origin rpy="1.570796 0 -0.785398" xyz="0.07184 0.07184 0"/>
+      </visual>
+      <collision>
+        <geometry>
+          <cylinder length="0.2032" radius="0.0381"/>
+        </geometry>
+        <origin rpy="1.570796 0 -0.785398" xyz="0.07184 0.07184 0"/>
+      </collision>
+      <inertial>
+        <mass value="0.1"/>
+        <inertia ixx="0.0003804" iyy="0.0003804" izz="0.00007258"
+                 ixy="0.0" ixz="0.0" iyz="0.0"/>
+        <origin rpy="1.570796 0 -0.785398" xyz="0.07184 0.07184 0"/>
+      </inertial>
+    </link>
+
+    <link name="front_left_mid_leg_link">
+      <visual>
+        <geometry>
+          <cylinder length="0.2032" radius="0.0381"/>
+        </geometry>
+        <material name="silver">
+          <color rgba="0.75 0.75 0.75 1"/>
+        </material>
+        <origin rpy="1.570796 0 -0.785398" xyz="0.07184 0.07184 0"/>
+      </visual>
+      <collision>
+        <geometry>
+          <cylinder length="0.2032" radius="0.0381"/>
+        </geometry>
+        <origin rpy="1.570796 0 -0.785398" xyz="0.07184 0.07184 0"/>
+      </collision>
+      <inertial>
+        <mass value="0.1"/>
+        <inertia ixx="0.0003804" iyy="0.0003804" izz="0.00007258"
+                 ixy="0.0" ixz="0.0" iyz="0.0"/>
+        <origin rpy="1.570796 0 -0.785398" xyz="0.07184 0.07184 0"/>
+      </inertial>
+    </link>
+
+    <link name="front_left_lower_leg_link">
+      <visual>
+        <geometry>
+          <cylinder length="0.2032" radius="0.0381"/>
+        </geometry>
+        <material name="silver">
+          <color rgba="0.75 0.75 0.75 1"/>
+        </material>
+        <origin rpy="1.570796 0 -0.785398" xyz="0.07184 0.07184 0"/>
+      </visual>
+      <collision>
+        <geometry>
+          <cylinder length="0.2032" radius="0.0381"/>
+        </geometry>
+        <origin rpy="1.570796 0 -0.785398" xyz="0.07184 0.07184 0"/>
+      </collision>
+      <inertial>
+        <mass value="0.1"/>
+        <inertia ixx="0.0003804" iyy="0.0003804" izz="0.00007258"
+                 ixy="0.0" ixz="0.0" iyz="0.0"/>
+        <origin rpy="1.570796 0 -0.785398" xyz="0.07184 0.07184 0"/>
+      </inertial>
+    </link>
+
+    <link name="front_left_foot_link">
+      <visual>
+        <geometry>
+          <sphere radius="0.04445"/>
+        </geometry>
+        <material name="silver">
+          <color rgba="0.75 0.75 0.75 1"/>
+        </material>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+      </visual>
+      <collision>
+        <geometry>
+          <sphere radius="0.04445"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+      </collision>
+      <inertial>
+        <mass value="0.1"/>
+        <inertia ixx="0.00007903" iyy="0.00007903" izz="0.00007903"
+                 ixy="0.0" ixz="0.0" iyz="0.0"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+      </inertial>
+    </link>
+
+    <!-- front right leg -->
+    <link name="front_right_upper_leg_link">
+      <visual>
+        <geometry>
+          <cylinder length="0.2032" radius="0.0381"/>
+        </geometry>
+        <material name="silver">
+          <color rgba="0.75 0.75 0.75 1"/>
+        </material>
+        <origin rpy="-1.570796 0 0.785398" xyz="0.07184 -0.07184 0"/>
+      </visual>
+      <collision>
+        <geometry>
+          <cylinder length="0.2032" radius="0.0381"/>
+        </geometry>
+        <origin rpy="-1.570796 0 0.785398" xyz="0.07184 -0.07184 0"/>
+      </collision>
+      <inertial>
+        <mass value="0.1"/>
+        <inertia ixx="0.0003804" iyy="0.0003804" izz="0.00007258"
+                 ixy="0.0" ixz="0.0" iyz="0.0"/>
+        <origin rpy="-1.570796 0 0.785398" xyz="0.07184 -0.07184 0"/>
+      </inertial>
+    </link>
+
+    <link name="front_right_mid_leg_link">
+      <visual>
+        <geometry>
+          <cylinder length="0.2032" radius="0.0381"/>
+        </geometry>
+        <material name="silver">
+          <color rgba="0.75 0.75 0.75 1"/>
+        </material>
+        <origin rpy="-1.570796 0 0.785398" xyz="0.07184 -0.07184 0"/>
+      </visual>
+      <collision>
+        <geometry>
+          <cylinder length="0.2032" radius="0.0381"/>
+        </geometry>
+        <origin rpy="-1.570796 0 0.785398" xyz="0.07184 -0.07184 0"/>
+      </collision>
+      <inertial>
+        <mass value="0.1"/>
+        <inertia ixx="0.0003804" iyy="0.0003804" izz="0.00007258"
+                 ixy="0.0" ixz="0.0" iyz="0.0"/>
+        <origin rpy="-1.570796 0 0.785398" xyz="0.07184 -0.07184 0"/>
+      </inertial>
+    </link>
+
+    <link name="front_right_lower_leg_link">
+      <visual>
+        <geometry>
+          <cylinder length="0.2032" radius="0.0381"/>
+        </geometry>
+        <material name="silver">
+          <color rgba="0.75 0.75 0.75 1"/>
+        </material>
+        <origin rpy="-1.570796 0 0.785398" xyz="0.07184 -0.07184 0"/>
+      </visual>
+      <collision>
+        <geometry>
+          <cylinder length="0.2032" radius="0.0381"/>
+        </geometry>
+        <origin rpy="-1.570796 0 0.785398" xyz="0.07184 -0.07184 0"/>
+      </collision>
+      <inertial>
+        <mass value="0.1"/>
+        <inertia ixx="0.0003804" iyy="0.0003804" izz="0.00007258"
+                 ixy="0.0" ixz="0.0" iyz="0.0"/>
+        <origin rpy="-1.570796 0 0.785398" xyz="0.07184 -0.07184 0"/>
+      </inertial>
+    </link>
+
+    <link name="front_right_foot_link">
+      <visual>
+        <geometry>
+          <sphere radius="0.04445"/>
+        </geometry>
+        <material name="silver">
+          <color rgba="0.75 0.75 0.75 1"/>
+        </material>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+      </visual>
+      <collision>
+        <geometry>
+          <sphere radius="0.04445"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+      </collision>
+      <inertial>
+        <mass value="0.1"/>
+        <inertia ixx="0.00007903" iyy="0.00007903" izz="0.00007903"
+                 ixy="0.0" ixz="0.0" iyz="0.0"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+      </inertial>
+    </link>
+
+    <!-- rear left leg -->
+    <link name="rear_left_upper_leg_link">
+      <visual>
+        <geometry>
+          <cylinder length="0.2032" radius="0.0381"/>
+        </geometry>
+        <material name="silver">
+          <color rgba="0.75 0.75 0.75 1"/>
+        </material>
+        <origin rpy="1.570796 0 0.785398" xyz="-0.07184 0.07184 0"/>
+      </visual>
+      <collision>
+        <geometry>
+          <cylinder length="0.2032" radius="0.0381"/>
+        </geometry>
+        <origin rpy="1.570796 0 0.785398" xyz="-0.07184 0.07184 0"/>
+      </collision>
+      <inertial>
+        <mass value="0.1"/>
+        <inertia ixx="0.0003804" iyy="0.0003804" izz="0.00007258"
+                 ixy="0.0" ixz="0.0" iyz="0.0"/>
+        <origin rpy="1.570796 0 0.785398" xyz="-0.07184 0.07184 0"/>
+      </inertial>
+    </link>
+
+    <link name="rear_left_mid_leg_link">
+      <visual>
+        <geometry>
+          <cylinder length="0.2032" radius="0.0381"/>
+        </geometry>
+        <material name="silver">
+          <color rgba="0.75 0.75 0.75 1"/>
+        </material>
+        <origin rpy="1.570796 0 0.785398" xyz="-0.07184 0.07184 0"/>
+      </visual>
+      <collision>
+        <geometry>
+          <cylinder length="0.2032" radius="0.0381"/>
+        </geometry>
+        <origin rpy="1.570796 0 0.785398" xyz="-0.07184 0.07184 0"/>
+      </collision>
+      <inertial>
+        <mass value="0.1"/>
+        <inertia ixx="0.0003804" iyy="0.0003804" izz="0.00007258"
+                 ixy="0.0" ixz="0.0" iyz="0.0"/>
+        <origin rpy="1.570796 0 0.785398" xyz="-0.07184 0.07184 0"/>
+      </inertial>
+    </link>
+
+    <link name="rear_left_lower_leg_link">
+      <visual>
+        <geometry>
+          <cylinder length="0.2032" radius="0.0381"/>
+        </geometry>
+        <material name="silver">
+          <color rgba="0.75 0.75 0.75 1"/>
+        </material>
+        <origin rpy="1.570796 0 0.785398" xyz="-0.07184 0.07184 0"/>
+      </visual>
+      <collision>
+        <geometry>
+          <cylinder length="0.2032" radius="0.0381"/>
+        </geometry>
+        <origin rpy="1.570796 0 0.785398" xyz="-0.07184 0.07184 0"/>
+      </collision>
+      <inertial>
+        <mass value="0.1"/>
+        <inertia ixx="0.0003804" iyy="0.0003804" izz="0.00007258"
+                 ixy="0.0" ixz="0.0" iyz="0.0"/>
+        <origin rpy="1.570796 0 0.785398" xyz="-0.07184 0.07184 0"/>
+      </inertial>
+    </link>
+
+    <link name="rear_left_foot_link">
+      <visual>
+        <geometry>
+          <sphere radius="0.04445"/>
+        </geometry>
+        <material name="silver">
+          <color rgba="0.75 0.75 0.75 1"/>
+        </material>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+      </visual>
+      <collision>
+        <geometry>
+          <sphere radius="0.04445"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+      </collision>
+      <inertial>
+        <mass value="0.1"/>
+        <inertia ixx="0.00007903" iyy="0.00007903" izz="0.00007903"
+                 ixy="0.0" ixz="0.0" iyz="0.0"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+      </inertial>
+    </link>
+
+    <!-- rear right leg -->
+    <link name="rear_right_upper_leg_link">
+      <visual>
+        <geometry>
+          <cylinder length="0.2032" radius="0.0381"/>W
+        </geometry>
+        <material name="silver">
+          <color rgba="0.75 0.75 0.75 1"/>
+        </material>
+        <origin rpy="-1.570796 0 -0.785398" xyz="-0.07184 -0.07184 0"/>
+      </visual>
+      <collision>
+        <geometry>
+          <cylinder length="0.2032" radius="0.0381"/>
+        </geometry>
+        <origin rpy="-1.570796 0 -0.785398" xyz="-0.07184 -0.07184 0"/>
+      </collision>
+      <inertial>
+        <mass value="0.1"/>
+        <inertia ixx="0.0003804" iyy="0.0003804" izz="0.00007258"
+                 ixy="0.0" ixz="0.0" iyz="0.0"/>
+        <origin rpy="-1.570796 0 -0.785398" xyz="-0.07184 -0.07184 0"/>
+      </inertial>
+    </link>
+
+    <link name="rear_right_mid_leg_link">
+      <visual>
+        <geometry>
+          <cylinder length="0.2032" radius="0.0381"/>W
+        </geometry>
+        <material name="silver">
+          <color rgba="0.75 0.75 0.75 1"/>
+        </material>
+        <origin rpy="-1.570796 0 -0.785398" xyz="-0.07184 -0.07184 0"/>
+      </visual>
+      <collision>
+        <geometry>
+          <cylinder length="0.2032" radius="0.0381"/>
+        </geometry>
+        <origin rpy="-1.570796 0 -0.785398" xyz="-0.07184 -0.07184 0"/>
+      </collision>
+      <inertial>
+        <mass value="0.1"/>
+        <inertia ixx="0.0003804" iyy="0.0003804" izz="0.00007258"
+                 ixy="0.0" ixz="0.0" iyz="0.0"/>
+        <origin rpy="-1.570796 0 -0.785398" xyz="-0.07184 -0.07184 0"/>
+      </inertial>
+    </link>
+
+    <link name="rear_right_lower_leg_link">
+      <visual>
+        <geometry>
+          <cylinder length="0.2032" radius="0.0381"/>W
+        </geometry>
+        <material name="silver">
+          <color rgba="0.75 0.75 0.75 1"/>
+        </material>
+        <origin rpy="-1.570796 0 -0.785398" xyz="-0.07184 -0.07184 0"/>
+      </visual>
+      <collision>
+        <geometry>
+          <cylinder length="0.2032" radius="0.0381"/>
+        </geometry>
+        <origin rpy="-1.570796 0 -0.785398" xyz="-0.07184 -0.07184 0"/>
+      </collision>
+      <inertial>
+        <mass value="0.1"/>
+        <inertia ixx="0.0003804" iyy="0.0003804" izz="0.00007258"
+                 ixy="0.0" ixz="0.0" iyz="0.0"/>
+        <origin rpy="-1.570796 0 -0.785398" xyz="-0.07184 -0.07184 0"/>
+      </inertial>
+    </link>
+
+    <link name="rear_right_foot_link">
+      <visual>
+        <geometry>
+          <sphere radius="0.04445"/>
+        </geometry>
+        <material name="silver">
+          <color rgba="0.75 0.75 0.75 1"/>
+        </material>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+      </visual>
+      <collision>
+        <geometry>
+          <sphere radius="0.04445"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+      </collision>
+      <inertial>
+        <mass value="0.1"/>
+        <inertia ixx="0.00007903" iyy="0.00007903" izz="0.00007903"
+                 ixy="0.0" ixz="0.0" iyz="0.0"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+      </inertial>
+    </link>
+
+    <!-- Joint definitions -->
+    <!-- front left leg -->
+    <joint name="front_left_hip_joint" type="revolute">
+      <axis xyz="0 0 1"/>
+      <parent link="base_link"/>
+      <child link="front_left_upper_leg_link"/>
+      <origin rpy="0 0 0" xyz="0.1078 0.1078 0"/>
+      <dynamics friction="0.1" damping="0.5"/>
+      <limit upper="1.5708" lower="-1.5708" effort="100.0" velocity="100.0"/>
+    </joint>
+
+    <joint name="front_left_knee_joint" type="revolute">
+      <axis xyz="0.7071 -0.7071 0"/>
+      <parent link="front_left_upper_leg_link"/>
+      <child link="front_left_mid_leg_link"/>
+      <origin rpy="0 0 0" xyz="0.1437 0.1437 0"/>
+      <dynamics friction="0.1" damping="0.5"/>
+      <limit upper="2.96706" lower="-2.96706" effort="100.0" velocity="100.0"/>
+    </joint>
+
+    <joint name="front_left_ankle_joint" type="revolute">
+      <axis xyz="0.7071 -0.7071 0"/>
+      <parent link="front_left_mid_leg_link"/>
+      <child link="front_left_lower_leg_link"/>
+      <origin rpy="0 0 0" xyz="0.1437 0.1437 0"/>
+      <dynamics friction="0.1" damping="0.5"/>
+      <limit upper="2.96706" lower="-2.96706" effort="100.0" velocity="100.0"/>
+    </joint>
+
+    <joint name="front_left_foot_joint" type="fixed">
+      <parent link="front_left_lower_leg_link"/>
+      <child link="front_left_foot_link"/>
+      <origin rpy="0 0 0" xyz="0.1437 0.1437 0"/>
+    </joint>
+
+    <!-- front right leg -->
+    <joint name="front_right_hip_joint" type="revolute">
+      <axis xyz="0 0 1"/>
+      <parent link="base_link"/>
+      <child link="front_right_upper_leg_link"/>
+      <origin rpy="0 0 0" xyz="0.1078 -0.1078 0"/>
+      <dynamics friction="0.1" damping="0.5"/>
+      <limit upper="1.5708" lower="-1.5708" effort="100.0" velocity="100.0"/>
+    </joint>
+
+    <joint name="front_right_knee_joint" type="revolute">
+      <axis xyz="0.7071 0.7071 0"/>
+      <parent link="front_right_upper_leg_link"/>
+      <child link="front_right_mid_leg_link"/>
+      <origin rpy="0 0 0" xyz="0.1437 -0.1437 0"/>
+      <dynamics friction="0.1" damping="0.5"/>
+      <limit upper="2.96706" lower="-2.96706" effort="100.0" velocity="100.0"/>
+    </joint>
+
+    <joint name="front_right_ankle_joint" type="revolute">
+      <axis xyz="0.7071 0.7071 0"/>
+      <parent link="front_right_mid_leg_link"/>
+      <child link="front_right_lower_leg_link"/>
+      <origin rpy="0 0 0" xyz="0.1437 -0.1437 0"/>
+      <dynamics friction="0.1" damping="0.5"/>
+      <limit upper="2.96706" lower="-2.96706" effort="100.0" velocity="100.0"/>
+    </joint>
+
+    <joint name="front_right_foot_joint" type="fixed">
+      <parent link="front_right_lower_leg_link"/>
+      <child link="front_right_foot_link"/>
+      <origin rpy="0 0 0" xyz="0.1437 -0.1437 0"/>
+    </joint>
+
+    <!-- rear left leg -->
+    <joint name="rear_left_hip_joint" type="revolute">
+      <axis xyz="0 0 1"/>
+      <parent link="base_link"/>
+      <child link="rear_left_upper_leg_link"/>
+      <origin rpy="0 0 0" xyz="-0.1078 0.1078 0"/>
+      <dynamics friction="0.1" damping="0.5"/>
+      <limit upper="1.5708" lower="-1.5708" effort="100.0" velocity="100.0"/>
+    </joint>
+
+    <joint name="rear_left_knee_joint" type="revolute">
+      <axis xyz="0.7071 0.7071 0"/>
+      <parent link="rear_left_upper_leg_link"/>
+      <child link="rear_left_mid_leg_link"/>
+      <origin rpy="0 0 0" xyz="-0.1437 0.1437 0"/>
+      <dynamics friction="0.1" damping="0.5"/>
+      <limit upper="2.96706" lower="-2.96706" effort="100.0" velocity="100.0"/>
+    </joint>
+
+    <joint name="rear_left_ankle_joint" type="revolute">
+      <axis xyz="0.7071 0.7071 0"/>
+      <parent link="rear_left_mid_leg_link"/>
+      <child link="rear_left_lower_leg_link"/>
+      <origin rpy="0 0 0" xyz="-0.1437 0.1437 0"/>
+      <dynamics friction="0.1" damping="0.5"/>
+      <limit upper="2.96706" lower="-2.96706" effort="100.0" velocity="100.0"/>
+    </joint>
+
+    <joint name="rear_left_foot_joint" type="fixed">
+      <parent link="rear_left_lower_leg_link"/>
+      <child link="rear_left_foot_link"/>
+      <origin rpy="0 0 0" xyz="-0.1437 0.1437 0"/>
+    </joint>
+
+    <!-- rear right leg -->
+    <joint name="rear_right_hip_joint" type="revolute">
+      <axis xyz="0 0 1"/>
+      <parent link="base_link"/>
+      <child link="rear_right_upper_leg_link"/>
+      <origin rpy="0 0 0" xyz="-0.1078 -0.1078 0"/>
+      <dynamics friction="0.1" damping="0.5"/>
+      <limit upper="1.5708" lower="-1.5708" effort="100.0" velocity="100.0"/>
+    </joint>
+
+    <joint name="rear_right_knee_joint" type="revolute">
+      <axis xyz="0.7071 -0.7071 0"/>
+      <parent link="rear_right_upper_leg_link"/>
+      <child link="rear_right_mid_leg_link"/>
+      <origin rpy="0 0 0" xyz="-0.1437 -0.1437 0"/>
+      <dynamics friction="0.1" damping="0.5"/>
+      <limit upper="2.96706" lower="-2.96706" effort="100.0" velocity="100.0"/>
+    </joint>
+
+    <joint name="rear_right_ankle_joint" type="revolute">
+      <axis xyz="0.7071 -0.7071 0"/>
+      <parent link="rear_right_mid_leg_link"/>
+      <child link="rear_right_lower_leg_link"/>
+      <origin rpy="0 0 0" xyz="-0.1437 -0.1437 0"/>
+      <dynamics friction="0.1" damping="0.5"/>
+      <limit upper="2.96706" lower="-2.96706" effort="100.0" velocity="100.0"/>
+    </joint>
+
+    <joint name="rear_right_foot_joint" type="fixed">
+      <parent link="rear_right_lower_leg_link"/>
+      <child link="rear_right_foot_link"/>
+      <origin rpy="0 0 0" xyz="-0.1437 -0.1437 0"/>
+    </joint>
+
+    <!-- Gazebo definitions - only used in Gazebo simulation -->
+    <gazebo reference="base_link">
+      <mu1>1.0</mu1>
+      <mu2>1.0</mu2>
+      <kp>10000000.0</kp>
+      <kd>1.0</kd>
+      <maxVel>0.5</maxVel>
+      <minDepth>0.001</minDepth>
+    </gazebo>
+
+    <!-- front left leg -->
+    <gazebo reference="front_left_hip_joint">
+      <implicitSpringDamper>True</implicitSpringDamper>
+    </gazebo>
+    <gazebo reference="front_left_upper_leg_link">
+      <material>Gazebo/Black</material>
+      <selfCollide>True</selfCollide>
+      <mu1>0.1</mu1>
+      <mu2>0.1</mu2>
+      <kp>10000000.0</kp>
+      <kd>1.0</kd>
+    </gazebo>
+    <gazebo reference="front_left_knee_joint">
+      <implicitSpringDamper>True</implicitSpringDamper>
+    </gazebo>
+    <gazebo reference="front_left_mid_leg_link">
+      <material>Gazebo/Black</material>
+      <selfCollide>True</selfCollide>
+      <mu1>0.1</mu1>
+      <mu2>0.1</mu2>
+      <kp>10000000.0</kp>
+      <kd>1.0</kd>
+    </gazebo>
+    <gazebo reference="front_left_ankle_joint">
+      <implicitSpringDamper>True</implicitSpringDamper>
+    </gazebo>
+    <gazebo reference="front_left_lower_leg_link">
+      <material>Gazebo/Black</material>
+      <selfCollide>True</selfCollide>
+      <mu1>0.1</mu1>
+      <mu2>0.1</mu2>
+      <kp>10000000.0</kp>
+      <kd>1.0</kd>
+    </gazebo>
+    <gazebo reference="front_left_foot_link">
+      <material>Gazebo/Orange</material>
+      <mu1>1.0</mu1>    <!-- May want to increase to 1000.0 -->
+      <mu2>1.0</mu2>    <!-- May want to increase to 1000.0 -->
+      <kp>10000.0</kp>  <!-- kp for rubber -->
+      <kd>100.0</kd>    <!-- kd for rubber -->
+      <maxVel>0.5</maxVel>
+      <minDepth>0.005</minDepth>
+    </gazebo>
+
+    <!-- front right leg -->
+    <gazebo reference="front_right_hip_joint">
+      <implicitSpringDamper>True</implicitSpringDamper>
+    </gazebo>
+    <gazebo reference="front_right_upper_leg_link">
+      <material>Gazebo/Black</material>
+      <selfCollide>True</selfCollide>
+      <mu1>0.1</mu1>
+      <mu2>0.1</mu2>
+      <kp>10000000.0</kp>
+      <kd>1.0</kd>
+    </gazebo>
+    <gazebo reference="front_right_knee_joint">
+      <implicitSpringDamper>True</implicitSpringDamper>
+    </gazebo>
+    <gazebo reference="front_right_mid_leg_link">
+      <material>Gazebo/Black</material>
+      <selfCollide>True</selfCollide>
+      <mu1>0.1</mu1>
+      <mu2>0.1</mu2>
+      <kp>10000000.0</kp>
+      <kd>1.0</kd>
+    </gazebo>
+    <gazebo reference="front_right_ankle_joint">
+      <implicitSpringDamper>True</implicitSpringDamper>
+    </gazebo>
+    <gazebo reference="front_right_lower_leg_link">
+      <material>Gazebo/Black</material>
+      <selfCollide>True</selfCollide>
+      <mu1>0.1</mu1>
+      <mu2>0.1</mu2>
+      <kp>10000000.0</kp>
+      <kd>1.0</kd>
+    </gazebo>
+    <gazebo reference="front_right_foot_link">
+      <material>Gazebo/Orange</material>
+      <mu1>1.0</mu1>    <!-- May want to increase to 1000.0 -->
+      <mu2>1.0</mu2>    <!-- May want to increase to 1000.0 -->
+      <kp>10000.0</kp>  <!-- kp for rubber -->
+      <kd>100.0</kd>    <!-- kd for rubber -->
+      <maxVel>0.5</maxVel>
+      <minDepth>0.005</minDepth>
+    </gazebo>
+
+    <!-- rear left leg -->
+    <gazebo reference="rear_left_hip_joint">
+      <implicitSpringDamper>True</implicitSpringDamper>
+    </gazebo>
+    <gazebo reference="rear_left_upper_leg_link">
+      <material>Gazebo/Black</material>
+      <selfCollide>True</selfCollide>
+      <mu1>0.1</mu1>
+      <mu2>0.1</mu2>
+      <kp>10000000.0</kp>
+      <kd>1.0</kd>
+    </gazebo>
+    <gazebo reference="rear_left_knee_joint">
+      <implicitSpringDamper>True</implicitSpringDamper>
+    </gazebo>
+    <gazebo reference="rear_left_mid_leg_link">
+      <material>Gazebo/Black</material>
+      <selfCollide>True</selfCollide>
+      <mu1>0.1</mu1>
+      <mu2>0.1</mu2>
+      <kp>10000000.0</kp>
+      <kd>1.0</kd>
+    </gazebo>
+    <gazebo reference="rear_left_ankle_joint">
+      <implicitSpringDamper>True</implicitSpringDamper>
+    </gazebo>
+    <gazebo reference="rear_left_lower_leg_link">
+      <material>Gazebo/Black</material>
+      <selfCollide>True</selfCollide>
+      <mu1>0.1</mu1>
+      <mu2>0.1</mu2>
+      <kp>10000000.0</kp>
+      <kd>1.0</kd>
+    </gazebo>
+    <gazebo reference="rear_left_foot_link">
+      <material>Gazebo/Orange</material>
+      <mu1>1.0</mu1>    <!-- May want to increase to 1000.0 -->
+      <mu2>1.0</mu2>    <!-- May want to increase to 1000.0 -->
+      <kp>10000.0</kp>  <!-- kp for rubber -->
+      <kd>100.0</kd>    <!-- kd for rubber -->
+      <maxVel>0.5</maxVel>
+      <minDepth>0.005</minDepth>
+    </gazebo>
+
+    <!-- rear right leg -->
+    <gazebo reference="rear_right_hip_joint">
+      <implicitSpringDamper>True</implicitSpringDamper>
+    </gazebo>
+    <gazebo reference="rear_right_upper_leg_link">
+      <material>Gazebo/Black</material>
+      <selfCollide>True</selfCollide>
+      <mu1>0.1</mu1>
+      <mu2>0.1</mu2>
+      <kp>10000000.0</kp>
+      <kd>1.0</kd>
+    </gazebo>
+    <gazebo reference="rear_right_knee_joint">
+      <implicitSpringDamper>True</implicitSpringDamper>
+    </gazebo>
+    <gazebo reference="rear_right_mid_leg_link">
+      <material>Gazebo/Black</material>
+      <selfCollide>True</selfCollide>
+      <mu1>0.1</mu1>
+      <mu2>0.1</mu2>
+      <kp>10000000.0</kp>
+      <kd>1.0</kd>
+    </gazebo>
+    <gazebo reference="rear_right_ankle_joint">
+      <implicitSpringDamper>True</implicitSpringDamper>
+    </gazebo>
+    <gazebo reference="rear_right_lower_leg_link">
+      <material>Gazebo/Black</material>
+      <selfCollide>True</selfCollide>
+      <mu1>0.1</mu1>
+      <mu2>0.1</mu2>
+      <kp>10000000.0</kp>
+      <kd>1.0</kd>
+    </gazebo>
+    <gazebo reference="rear_right_foot_link">
+      <material>Gazebo/Orange</material>
+      <mu1>1.0</mu1>    <!-- May want to increase to 1000.0 -->
+      <mu2>1.0</mu2>    <!-- May want to increase to 1000.0 -->
+      <kp>10000.0</kp>  <!-- kp for rubber -->
+      <kd>100.0</kd>    <!-- kd for rubber -->
+      <maxVel>0.5</maxVel>
+      <minDepth>0.005</minDepth>
+    </gazebo>
+
+    <!-- Gazebo plugins -->
+    <!-- front left leg -->
+    <gazebo>
+      <plugin name="boilerplate_motor_plugin"
+              filename="libboilerplate_motor_plugin.so">
+        <actuatorJoint>front_left_hip_joint</actuatorJoint>
+        <maxTorque>30.0</maxTorque>
+        <posPidPGain>13.0</posPidPGain>
+        <posPidIGain>0.75</posPidIGain>
+        <posPidDGain>1.5</posPidDGain>
+        <posPidIMax>0.5</posPidIMax>
+        <posPidIMin>-0.5</posPidIMin>
+        <initialPosition>0.0</initialPosition>
+        <cmdPosTopic>frontleftleg_to_hip</cmdPosTopic>
+        <anglePosTopic>hip_to_frontleftleg</anglePosTopic>
+      </plugin>
+    </gazebo>
+    <gazebo>
+      <plugin name="boilerplate_motor_plugin"
+              filename="libboilerplate_motor_plugin.so">
+        <actuatorJoint>front_left_knee_joint</actuatorJoint>
+        <maxTorque>30.0</maxTorque>
+        <posPidPGain>13.0</posPidPGain>
+        <posPidIGain>0.75</posPidIGain>
+        <posPidDGain>1.5</posPidDGain>
+        <posPidIMax>0.5</posPidIMax>
+        <posPidIMin>-0.5</posPidIMin>
+        <initialPosition>0.0</initialPosition>
+        <cmdPosTopic>frontleftleg_to_knee</cmdPosTopic>
+        <anglePosTopic>knee_to_frontleftleg</anglePosTopic>
+      </plugin>
+    </gazebo>
+    <gazebo>
+      <plugin name="boilerplate_motor_plugin"
+              filename="libboilerplate_motor_plugin.so">
+        <actuatorJoint>front_left_ankle_joint</actuatorJoint>
+        <maxTorque>30.0</maxTorque>
+        <posPidPGain>13.0</posPidPGain>
+        <posPidIGain>0.75</posPidIGain>
+        <posPidDGain>1.5</posPidDGain>
+        <posPidIMax>0.5</posPidIMax>
+        <posPidIMin>-0.5</posPidIMin>
+        <initialPosition>0.0</initialPosition>
+        <cmdPosTopic>frontleftleg_to_ankle</cmdPosTopic>
+        <anglePosTopic>ankle_to_frontleftleg</anglePosTopic>
+      </plugin>
+    </gazebo>
+
+    <!-- front right leg -->
+    <gazebo>
+      <plugin name="boilerplate_motor_plugin"
+              filename="libboilerplate_motor_plugin.so">
+        <actuatorJoint>front_right_hip_joint</actuatorJoint>
+        <maxTorque>30.0</maxTorque>
+        <posPidPGain>13.0</posPidPGain>
+        <posPidIGain>0.75</posPidIGain>
+        <posPidDGain>1.5</posPidDGain>
+        <posPidIMax>0.5</posPidIMax>
+        <posPidIMin>-0.5</posPidIMin>
+        <initialPosition>0.0</initialPosition>
+        <cmdPosTopic>frontrightleg_to_hip</cmdPosTopic>
+        <anglePosTopic>hip_to_frontrightleg</anglePosTopic>
+      </plugin>
+    </gazebo>
+    <gazebo>
+      <plugin name="boilerplate_motor_plugin"
+              filename="libboilerplate_motor_plugin.so">
+        <actuatorJoint>front_right_knee_joint</actuatorJoint>
+        <maxTorque>30.0</maxTorque>
+        <posPidPGain>13.0</posPidPGain>
+        <posPidIGain>0.75</posPidIGain>
+        <posPidDGain>1.5</posPidDGain>
+        <posPidIMax>0.5</posPidIMax>
+        <posPidIMin>-0.5</posPidIMin>
+        <initialPosition>0.0</initialPosition>
+        <cmdPosTopic>frontrightleg_to_knee</cmdPosTopic>
+        <anglePosTopic>knee_to_frontrightleg</anglePosTopic>
+      </plugin>
+    </gazebo>
+    <gazebo>
+      <plugin name="boilerplate_motor_plugin"
+              filename="libboilerplate_motor_plugin.so">
+        <actuatorJoint>front_right_ankle_joint</actuatorJoint>
+        <maxTorque>30.0</maxTorque>
+        <posPidPGain>13.0</posPidPGain>
+        <posPidIGain>0.75</posPidIGain>
+        <posPidDGain>1.5</posPidDGain>
+        <posPidIMax>0.5</posPidIMax>
+        <posPidIMin>-0.5</posPidIMin>
+        <initialPosition>0.0</initialPosition>
+        <cmdPosTopic>frontrightleg_to_ankle</cmdPosTopic>
+        <anglePosTopic>ankle_to_frontrightleg</anglePosTopic>
+      </plugin>
+    </gazebo>
+
+    <!-- rear left leg -->
+    <gazebo>
+      <plugin name="boilerplate_motor_plugin"
+              filename="libboilerplate_motor_plugin.so">
+        <actuatorJoint>rear_left_hip_joint</actuatorJoint>
+        <maxTorque>30.0</maxTorque>
+        <posPidPGain>13.0</posPidPGain>
+        <posPidIGain>0.75</posPidIGain>
+        <posPidDGain>1.5</posPidDGain>
+        <posPidIMax>0.5</posPidIMax>
+        <posPidIMin>-0.5</posPidIMin>
+        <initialPosition>0.0</initialPosition>
+        <cmdPosTopic>rearleftleg_to_hip</cmdPosTopic>
+        <anglePosTopic>hip_to_rearleftleg</anglePosTopic>
+      </plugin>
+    </gazebo>
+    <gazebo>
+      <plugin name="boilerplate_motor_plugin"
+              filename="libboilerplate_motor_plugin.so">
+        <actuatorJoint>rear_left_knee_joint</actuatorJoint>
+        <maxTorque>30.0</maxTorque>
+        <posPidPGain>13.0</posPidPGain>
+        <posPidIGain>0.75</posPidIGain>
+        <posPidDGain>1.5</posPidDGain>
+        <posPidIMax>0.5</posPidIMax>
+        <posPidIMin>-0.5</posPidIMin>
+        <initialPosition>0.0</initialPosition>
+        <cmdPosTopic>rearleftleg_to_knee</cmdPosTopic>
+        <anglePosTopic>knee_to_rearleftleg</anglePosTopic>
+      </plugin>
+    </gazebo>
+    <gazebo>
+      <plugin name="boilerplate_motor_plugin"
+              filename="libboilerplate_motor_plugin.so">
+        <actuatorJoint>rear_left_ankle_joint</actuatorJoint>
+        <maxTorque>30.0</maxTorque>
+        <posPidPGain>13.0</posPidPGain>
+        <posPidIGain>0.75</posPidIGain>
+        <posPidDGain>1.5</posPidDGain>
+        <posPidIMax>0.5</posPidIMax>
+        <posPidIMin>-0.5</posPidIMin>
+        <initialPosition>0.0</initialPosition>
+        <cmdPosTopic>rearleftleg_to_ankle</cmdPosTopic>
+        <anglePosTopic>ankle_to_rearleftleg</anglePosTopic>
+      </plugin>
+    </gazebo>
+
+    <!-- rear right leg -->
+    <gazebo>
+      <plugin name="boilerplate_motor_plugin"
+              filename="libboilerplate_motor_plugin.so">
+        <actuatorJoint>rear_right_hip_joint</actuatorJoint>
+        <maxTorque>30.0</maxTorque>
+        <posPidPGain>13.0</posPidPGain>
+        <posPidIGain>0.75</posPidIGain>
+        <posPidDGain>1.5</posPidDGain>
+        <posPidIMax>0.5</posPidIMax>
+        <posPidIMin>-0.5</posPidIMin>
+        <initialPosition>0.0</initialPosition>
+        <cmdPosTopic>rearrightleg_to_hip</cmdPosTopic>
+        <anglePosTopic>hip_to_rearrightleg</anglePosTopic>
+      </plugin>
+    </gazebo>
+    <gazebo>
+      <plugin name="boilerplate_motor_plugin"
+              filename="libboilerplate_motor_plugin.so">
+        <actuatorJoint>rear_right_knee_joint</actuatorJoint>
+        <maxTorque>30.0</maxTorque>
+        <posPidPGain>13.0</posPidPGain>
+        <posPidIGain>0.75</posPidIGain>
+        <posPidDGain>1.5</posPidDGain>
+        <posPidIMax>0.5</posPidIMax>
+        <posPidIMin>-0.5</posPidIMin>
+        <initialPosition>0.0</initialPosition>
+        <cmdPosTopic>rearrightleg_to_knee</cmdPosTopic>
+        <anglePosTopic>knee_to_rearrightleg</anglePosTopic>
+      </plugin>
+    </gazebo>
+    <gazebo>
+      <plugin name="boilerplate_motor_plugin"
+              filename="libboilerplate_motor_plugin.so">
+        <actuatorJoint>rear_right_ankle_joint</actuatorJoint>
+        <maxTorque>30.0</maxTorque>
+        <posPidPGain>13.0</posPidPGain>
+        <posPidIGain>0.75</posPidIGain>
+        <posPidDGain>1.5</posPidDGain>
+        <posPidIMax>0.5</posPidIMax>
+        <posPidIMin>-0.5</posPidIMin>
+        <initialPosition>0.0</initialPosition>
+        <cmdPosTopic>rearrightleg_to_ankle</cmdPosTopic>
+        <anglePosTopic>ankle_to_rearrightleg</anglePosTopic>
+      </plugin>
+    </gazebo>
