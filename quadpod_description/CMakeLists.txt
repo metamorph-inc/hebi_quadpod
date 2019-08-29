@@ -12,7 +12,6 @@ find_package(catkin REQUIRED COMPONENTS
   smach
   smach_ros
   std_msgs
-  simplemotorpluginexample_gazebo
 )
 
 ## System dependencies are found with CMake's conventions
